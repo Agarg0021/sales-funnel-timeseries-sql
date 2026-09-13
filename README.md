@@ -14,6 +14,32 @@ SQL window functions: running totals, moving averages, `PERCENT_RANK`,
 - **Language:** Python 3 for data generation / loading only. All analysis is
   pure SQL.
 
+## Project structure
+sales-funnel-timeseries-sql/
+├── README.md
+├── data/
+│ ├── generate_data.py # synthetic data generator
+│ ├── raw/
+│ │ └── superstore.csv # generated dataset (16k+ rows)
+│ └── processed/ # (reserved for later exports)
+├── database/
+│ └── superstore.db # SQLite database (built by 03_load_data.py)
+├── sql/
+│ ├── 01_setup/
+│ │ ├── 01_create_schema.sql
+│ │ ├── 02_create_dim_date.sql
+│ │ ├── 03_load_data.py # builds DB + loads CSV + populates dim_date
+│ │ └── 04_sanity_checks.sql
+│ ├── 02_running_totals/
+│ │ ├── 01_vw_daily_sales_running_total.sql
+│ │ ├── 02_vw_7day_moving_avg.sql
+│ │ ├── 03_vw_monthly_running_total.sql
+│ │ └── build_views_day2.py # creates/refreshes all 3 views at once
+│ ├── 03_growth/
+│ ├── 04_ranking/
+│ └── 05_streaks/
+├── docs/ # ER diagram / notes
+└── outputs/ # exported query results, screenshots, etc.
 
 
 ## Schema
@@ -49,11 +75,46 @@ technique in this project:
 - 4 full years (2022–2025) of daily order activity
 - Nov/Dec seasonal sales spike, summer dip — makes MoM/YoY growth meaningful
 - 220 customers with a mix of loyal repeat buyers (consecutive-month runs)
-  and sporadic one-off buyers — needed for the Day 5 gap-and-island streak
+  and sporadic one-off buyers — needed for the gap-and-island streak
   analysis to have real signal
 - 3 categories / 13 sub-categories / 34 products, 4 regions
 
 If you'd rather use the real Kaggle Superstore dataset, drop the CSV into
 `data/raw/superstore.csv` with matching column names (or adjust the loader)
 and re-run `sql/01_setup/03_load_data.py`.
+
+## How to reproduce
+
+```bash
+cd sales-funnel-timeseries-sql
+python3 data/generate_data.py          # regenerate data/raw/superstore.csv
+python3 sql/01_setup/03_load_data.py   # rebuild database/superstore.db
+python3 sql/02_running_totals/build_views_day2.py   # build running-total views
+```
+
+Then run `sql/01_setup/04_sanity_checks.sql` against `database/superstore.db`
+with any SQLite client (DB Browser for SQLite, `sqlite3` CLI, or Python's
+`sqlite3` module) to confirm the load.
+
+## Dataset sanity-check results (for reference)
+
+- 16,156 line items across 6,453 orders, 220 customers
+- Date range: 2022-01-02 → 2025-12-27
+- No NULLs in key columns
+- Sales by category: Technology ≈ $13.3M, Furniture ≈ $10.4M, Office Supplies ≈ $1.4M
+- Clear seasonality: Nov/Dec months run noticeably higher than the summer months
+- Top loyal customers active in 44–47 of the 48 months — good streak material for the gap-and-island analysis
+
+## Running-total & moving-average views (for reference)
+
+| View | Purpose | Key technique |
+|---|---|---|
+| `vw_daily_sales_running_total` | Store-wide cumulative sales, day by day | `SUM() OVER (ORDER BY order_date ROWS UNBOUNDED PRECEDING)` |
+| `vw_7day_moving_avg` | Smoothed daily sales trend (fills gap days with $0 via `dim_date`) | `AVG() OVER (ORDER BY order_date ROWS BETWEEN 6 PRECEDING AND CURRENT ROW)` |
+| `vw_monthly_running_total` | Cumulative sales per category, month over month | `SUM() OVER (PARTITION BY category ORDER BY year_month)` |
+
+Verified: running totals accumulate monotonically, the moving average window
+ramps up correctly for the first 6 days then stabilizes, and the monthly
+running total resets independently per category (144 rows = 3 categories ×
+48 months).
 
