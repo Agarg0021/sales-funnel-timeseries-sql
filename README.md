@@ -40,10 +40,12 @@ sales-funnel-timeseries-sql/
 │ │ ├── 02_vw_yoy_growth.sql
 │ │ └── build_views_day3.py # creates/refreshes both growth views
 │ ├── 04_ranking/
+│ │ ├── 01_vw_top5_products_per_category.sql
+│ │ ├── 02_vw_customer_percentile_rank.sql
+│ │ └── build_views_day4.py # creates/refreshes both ranking views
 │ └── 05_streaks/
 ├── docs/ # ER diagram / notes
 └── outputs/ # exported query results, screenshots, etc.
-
 
 ## Schema
 
@@ -94,6 +96,7 @@ python3 data/generate_data.py          # regenerate data/raw/superstore.csv
 python3 sql/01_setup/03_load_data.py   # rebuild database/superstore.db
 python3 sql/02_running_totals/build_views_day2.py   # running-total views
 python3 sql/03_growth/build_views_day3.py           # MoM/YoY growth views
+python3 sql/04_ranking/build_views_day4.py          # Top-N / percentile views
 ```
 
 Then run `sql/01_setup/04_sanity_checks.sql` against `database/superstore.db`
@@ -137,3 +140,21 @@ Verified: 336 rows in each view (3 categories + 4 regions × 48 months); the
 first month for every dimension correctly shows `NULL` growth (no prior
 period to compare); e.g. Furniture category, Jan 2023 vs Jan 2022 shows
 +107.64% YoY growth.
+
+## Ranking & Top-N views (for reference)
+
+| View | Purpose | Key technique |
+|---|---|---|
+| `vw_top5_products_per_category` | Best-selling 5 products within each category | `ROW_NUMBER() OVER (PARTITION BY category ORDER BY total_sales DESC)` |
+| `vw_customer_percentile_rank` | Each customer's spend rank & percentile, store-wide and within their segment | `RANK()` + `PERCENT_RANK() OVER (ORDER BY total_sales)` |
+
+`vw_top5_products_per_category` uses `ROW_NUMBER` (not `RANK`) specifically so
+every category returns exactly 5 rows even if two products tie on sales.
+`vw_customer_percentile_rank` uses `RANK` (ties share a rank) for the plain
+"#N of 220" display, and `PERCENT_RANK` (0.0-1.0) for percentile badges, both
+store-wide and re-partitioned by segment.
+
+Verified: every category returns exactly 5 products (15 rows total); the
+top store-wide spender (Wei Lee, $292,188.87) correctly sits at percentile
+1.0, and the lowest spender (Carlos Martin, $865.41) correctly sits at
+percentile 0.0, across all 220 customers.
