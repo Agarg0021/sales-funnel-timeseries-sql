@@ -36,6 +36,9 @@ sales-funnel-timeseries-sql/
 │ │ ├── 03_vw_monthly_running_total.sql
 │ │ └── build_views_day2.py # creates/refreshes all 3 views at once
 │ ├── 03_growth/
+│ │ ├── 01_vw_mom_growth.sql
+│ │ ├── 02_vw_yoy_growth.sql
+│ │ └── build_views_day3.py # creates/refreshes both growth views
 │ ├── 04_ranking/
 │ └── 05_streaks/
 ├── docs/ # ER diagram / notes
@@ -89,7 +92,8 @@ and re-run `sql/01_setup/03_load_data.py`.
 cd sales-funnel-timeseries-sql
 python3 data/generate_data.py          # regenerate data/raw/superstore.csv
 python3 sql/01_setup/03_load_data.py   # rebuild database/superstore.db
-python3 sql/02_running_totals/build_views_day2.py   # build running-total views
+python3 sql/02_running_totals/build_views_day2.py   # running-total views
+python3 sql/03_growth/build_views_day3.py           # MoM/YoY growth views
 ```
 
 Then run `sql/01_setup/04_sanity_checks.sql` against `database/superstore.db`
@@ -118,3 +122,18 @@ ramps up correctly for the first 6 days then stabilizes, and the monthly
 running total resets independently per category (144 rows = 3 categories ×
 48 months).
 
+## MoM / YoY growth views (for reference)
+
+| View | Purpose | Key technique |
+|---|---|---|
+| `vw_mom_growth` | Month-over-month % growth, by category and by region | `LAG(monthly_sales) OVER (PARTITION BY dimension_type, dimension_value ORDER BY year_month)` |
+| `vw_yoy_growth` | Year-over-year % growth (same month, prior year), by category and by region | `LAG(monthly_sales, 12) OVER (PARTITION BY dimension_type, dimension_value ORDER BY year_month)` |
+
+Both views union a `by_category` and `by_region` CTE into one dashboard-ready
+view with `dimension_type` / `dimension_value` columns, so a single view can
+drive a "Category vs Region" filter instead of needing two separate views.
+
+Verified: 336 rows in each view (3 categories + 4 regions × 48 months); the
+first month for every dimension correctly shows `NULL` growth (no prior
+period to compare); e.g. Furniture category, Jan 2023 vs Jan 2022 shows
++107.64% YoY growth.
