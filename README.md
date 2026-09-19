@@ -23,7 +23,7 @@ sales-funnel-timeseries-sql/
 │ │ └── superstore.csv # generated dataset (16k+ rows)
 │ └── processed/ # (reserved for later exports)
 ├── database/
-│ └── superstore.db # SQLite database (built by 03_load_data.py)
+│ └── superstore.db # SQLite database, all 9 views built in
 ├── sql/
 │ ├── 01_setup/
 │ │ ├── 01_create_schema.sql
@@ -34,16 +34,19 @@ sales-funnel-timeseries-sql/
 │ │ ├── 01_vw_daily_sales_running_total.sql
 │ │ ├── 02_vw_7day_moving_avg.sql
 │ │ ├── 03_vw_monthly_running_total.sql
-│ │ └── build_views_day2.py # creates/refreshes all 3 views at once
+│ │ └── build_views_day2.py
 │ ├── 03_growth/
 │ │ ├── 01_vw_mom_growth.sql
 │ │ ├── 02_vw_yoy_growth.sql
-│ │ └── build_views_day3.py # creates/refreshes both growth views
+│ │ └── build_views_day3.py
 │ ├── 04_ranking/
 │ │ ├── 01_vw_top5_products_per_category.sql
 │ │ ├── 02_vw_customer_percentile_rank.sql
-│ │ └── build_views_day4.py # creates/refreshes both ranking views
+│ │ └── build_views_day4.py
 │ └── 05_streaks/
+│ ├── 01_vw_customer_purchase_streaks.sql
+│ ├── 02_vw_customer_longest_streak.sql
+│ └── build_views_day5.py
 ├── docs/ # ER diagram / notes
 └── outputs/ # exported query results, screenshots, etc.
 
@@ -97,6 +100,7 @@ python3 sql/01_setup/03_load_data.py   # rebuild database/superstore.db
 python3 sql/02_running_totals/build_views_day2.py   # running-total views
 python3 sql/03_growth/build_views_day3.py           # MoM/YoY growth views
 python3 sql/04_ranking/build_views_day4.py          # Top-N / percentile views
+python3 sql/05_streaks/build_views_day5.py          # purchase-streak views
 ```
 
 Then run `sql/01_setup/04_sanity_checks.sql` against `database/superstore.db`
@@ -112,7 +116,7 @@ with any SQLite client (DB Browser for SQLite, `sqlite3` CLI, or Python's
 - Clear seasonality: Nov/Dec months run noticeably higher than the summer months
 - Top loyal customers active in 44–47 of the 48 months — good streak material for the gap-and-island analysis
 
-## Running-total & moving-average views (for reference)
+## Running-total & moving-average views
 
 | View | Purpose | Key technique |
 |---|---|---|
@@ -125,7 +129,7 @@ ramps up correctly for the first 6 days then stabilizes, and the monthly
 running total resets independently per category (144 rows = 3 categories ×
 48 months).
 
-## MoM / YoY growth views (for reference)
+## MoM / YoY growth views
 
 | View | Purpose | Key technique |
 |---|---|---|
@@ -141,7 +145,7 @@ first month for every dimension correctly shows `NULL` growth (no prior
 period to compare); e.g. Furniture category, Jan 2023 vs Jan 2022 shows
 +107.64% YoY growth.
 
-## Ranking & Top-N views (for reference)
+## Ranking & Top-N views
 
 | View | Purpose | Key technique |
 |---|---|---|
@@ -158,3 +162,43 @@ Verified: every category returns exactly 5 products (15 rows total); the
 top store-wide spender (Wei Lee, $292,188.87) correctly sits at percentile
 1.0, and the lowest spender (Carlos Martin, $865.41) correctly sits at
 percentile 0.0, across all 220 customers.
+
+## Purchase-streak views (gap-and-island)
+
+| View | Purpose | Key technique |
+|---|---|---|
+| `vw_customer_purchase_streaks` | Every consecutive-month purchase streak per customer | Gap-and-island: `month_index - ROW_NUMBER() OVER (PARTITION BY customer ORDER BY month_index)` produces a constant "island id" for each unbroken run of months |
+| `vw_customer_longest_streak` | Each customer's single longest streak | `ROW_NUMBER() OVER (PARTITION BY customer ORDER BY streak_length_months DESC)` on top of the streaks view |
+
+The island-id trick: convert each active month to an integer (`year*12 +
+month`) so consecutive calendar months are consecutive integers. Within one
+unbroken run, both the month index and its row number increase by 1 each
+step, so their difference stays constant — the moment a month is skipped,
+the difference jumps, marking a new streak. `is_current_streak` flags
+whether a streak's end month is the most recent month in the dataset, so a
+dashboard can tell "still active" streaks apart from historical ones.
+
+Verified against a real gap: customer CU-10023 (Barbara Martinez) was active
+every month from Jan 2022 through Sep 2025, skipped Oct 2025, then resumed
+Nov–Dec 2025. The view correctly splits this into two streaks — 45 months
+(2022-01 to 2025-09) and 2 months (2025-11 to 2025-12) — summing to her full
+47 active months, with only the second streak flagged as current. Every one
+of the 220 customers has exactly one row in the longest-streak view.
+
+## Full view catalog (all 9 views)
+
+| # | View | Category |
+|---|---|---|
+| 1 | `vw_daily_sales_running_total` | Running total |
+| 2 | `vw_7day_moving_avg` | Moving average |
+| 3 | `vw_monthly_running_total` | Running total |
+| 4 | `vw_mom_growth` | Growth |
+| 5 | `vw_yoy_growth` | Growth |
+| 6 | `vw_top5_products_per_category` | Ranking |
+| 7 | `vw_customer_percentile_rank` | Ranking |
+| 8 | `vw_customer_purchase_streaks` | Gap-and-island |
+| 9 | `vw_customer_longest_streak` | Gap-and-island |
+
+All 9 views are dashboard-ready: query them directly from any BI tool that
+can connect to SQLite (or port the schema/scripts to Postgres/MySQL/Snowflake
+for a production warehouse, per the notes in each script).

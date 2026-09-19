@@ -1,0 +1,221 @@
+customer_id,customer_name,segment,region,total_sales,total_orders,overall_rank,overall_percentile,segment_percentile
+CU-10168,Wei Lee,Corporate,South,292188.87,63,1,1.0,1.0
+CU-10187,Yuki Anderson,Home Office,West,286941.47,57,2,0.9954,1.0
+CU-10004,Jennifer Thomas,Consumer,Central,282280.56,59,3,0.9909,1.0
+CU-10144,David Wilson,Home Office,South,281667.47,67,4,0.9863,0.9863
+CU-10037,Michael Taylor,Consumer,East,277186.59,52,5,0.9817,0.9875
+CU-10032,Patricia Thomas,Corporate,Central,276923.51,59,6,0.9772,0.9844
+CU-10167,Sarah Jones,Home Office,South,276800.8,60,7,0.9726,0.9726
+CU-10023,Barbara Martinez,Home Office,West,276035.92,66,8,0.968,0.9589
+CU-10174,Ahmed Davis,Corporate,Central,271735.49,63,9,0.9635,0.9688
+CU-10152,Jennifer Williams,Home Office,South,270792.38,60,10,0.9589,0.9452
+CU-10064,Susan Smith,Consumer,West,265167.48,58,11,0.9543,0.975
+CU-10099,William Davis,Consumer,East,260290.16,60,12,0.9498,0.9625
+CU-10212,Joseph Williams,Corporate,South,254281.08,61,13,0.9452,0.9531
+CU-10039,Michael Johnson,Consumer,East,250792.94,59,14,0.9406,0.95
+CU-10073,Wei Taylor,Consumer,South,250320.15,54,15,0.9361,0.9375
+CU-10205,Elizabeth Brown,Consumer,South,250279.36,53,16,0.9315,0.925
+CU-10043,Charles Martin,Home Office,Central,250222.16,54,17,0.9269,0.9315
+CU-10193,Wei Martinez,Consumer,Central,249663.52,60,18,0.9224,0.9125
+CU-10070,Sofia Garcia,Consumer,East,248588.4,55,19,0.9178,0.9
+CU-10171,Priya Anderson,Consumer,East,240760.49,58,20,0.9132,0.8875
+CU-10132,John Martinez,Consumer,South,239681.39,70,21,0.9087,0.875
+CU-10048,Elizabeth Brown,Consumer,West,239355.55,56,22,0.9041,0.8625
+CU-10104,Robert Martinez,Corporate,West,237232.1,62,23,0.8995,0.9375
+CU-10191,Sarah Anderson,Corporate,East,236844.76,55,24,0.895,0.9219
+CU-10161,Elizabeth Wilson,Consumer,East,235759.25,55,25,0.8904,0.85
+CU-10149,Thomas Thomas,Consumer,West,231724.07,57,26,0.8858,0.8375
+CU-10127,Robert Jackson,Corporate,Central,231411.59,58,27,0.8813,0.9063
+CU-10100,Charles Thompson,Corporate,South,230351.31,61,28,0.8767,0.8906
+CU-10062,David Johnson,Corporate,East,229488.7,51,29,0.8721,0.875
+CU-10072,Linda Jackson,Home Office,East,228370.43,52,30,0.8676,0.9178
+CU-10026,Carlos Miller,Corporate,Central,228124.14,59,31,0.863,0.8594
+CU-10081,William Lee,Consumer,South,227715.08,54,32,0.8584,0.825
+CU-10139,William Lee,Consumer,South,225461.54,52,33,0.8539,0.8125
+CU-10024,Robert Jackson,Consumer,East,223363.86,60,34,0.8493,0.8
+CU-10142,Charles Wilson,Home Office,East,221713.55,62,35,0.8447,0.9041
+CU-10098,Priya Rodriguez,Home Office,South,220363.99,54,36,0.8402,0.8904
+CU-10113,Charles Johnson,Consumer,West,220018.34,53,37,0.8356,0.7875
+CU-10188,Sarah Wilson,Home Office,East,218069.6,58,38,0.8311,0.8767
+CU-10105,Barbara Jackson,Corporate,Central,217655.8,54,39,0.8265,0.8438
+CU-10172,Fatima Moore,Consumer,East,217246.18,49,40,0.8219,0.775
+CU-10153,Wei Rodriguez,Corporate,South,216201.15,61,41,0.8174,0.8281
+CU-10204,Robert Wilson,Home Office,South,216048.83,54,42,0.8128,0.863
+CU-10160,Barbara Martin,Corporate,Central,215653.38,59,43,0.8082,0.8125
+CU-10110,Mary Lee,Consumer,Central,213257.14,54,44,0.8037,0.7625
+CU-10200,Karen Johnson,Consumer,East,211689.67,52,45,0.7991,0.75
+CU-10055,Patricia Anderson,Consumer,South,208265.33,57,46,0.7945,0.7375
+CU-10163,Patricia Moore,Home Office,Central,206515.36,52,47,0.79,0.8493
+CU-10096,James Thomas,Corporate,South,204911.87,49,48,0.7854,0.7969
+CU-10115,Joseph Martinez,Home Office,South,203738.8,50,49,0.7808,0.8356
+CU-10061,Sarah Wilson,Consumer,East,202274.98,42,50,0.7763,0.725
+CU-10075,Mary Lee,Consumer,West,202112.85,56,51,0.7717,0.7125
+CU-10060,David Williams,Home Office,Central,201840.05,57,52,0.7671,0.8219
+CU-10025,Sarah Garcia,Consumer,Central,200073.9,56,53,0.7626,0.7
+CU-10041,Robert Thompson,Consumer,East,198841.46,61,54,0.758,0.6875
+CU-10215,Joseph Perez,Corporate,East,198125.23,50,55,0.7534,0.7813
+CU-10121,David Jones,Corporate,East,197627.06,50,56,0.7489,0.7656
+CU-10095,Barbara Lee,Home Office,South,196781.38,47,57,0.7443,0.8082
+CU-10009,Joseph Anderson,Consumer,West,196379.89,55,58,0.7397,0.675
+CU-10011,David Lee,Consumer,West,194319.52,61,59,0.7352,0.6625
+CU-10068,James Martinez,Home Office,Central,194220.45,41,60,0.7306,0.7945
+CU-10019,Elizabeth Thomas,Home Office,West,193974.7,48,61,0.726,0.7808
+CU-10151,David Moore,Corporate,Central,193920.43,61,62,0.7215,0.75
+CU-10051,Ahmed Rodriguez,Consumer,East,193474.66,62,63,0.7169,0.65
+CU-10094,Ahmed Davis,Home Office,East,193052.47,56,64,0.7123,0.7671
+CU-10179,Sofia Martin,Consumer,Central,192217.98,51,65,0.7078,0.6375
+CU-10143,James Jones,Corporate,South,190995.55,49,66,0.7032,0.7344
+CU-10056,Sofia Garcia,Home Office,South,189658.1,50,67,0.6986,0.7534
+CU-10146,Priya Martinez,Consumer,West,188916.05,57,68,0.6941,0.625
+CU-10028,Sarah Davis,Home Office,West,188870.84,53,69,0.6895,0.7397
+CU-10040,Thomas Martin,Consumer,West,188421.45,45,70,0.6849,0.6125
+CU-10103,Susan Jackson,Corporate,West,188221.4,50,71,0.6804,0.7188
+CU-10012,Sofia Wilson,Consumer,South,188075.81,51,72,0.6758,0.6
+CU-10030,Amit Jackson,Home Office,West,187957.12,63,73,0.6712,0.726
+CU-10002,Michael Davis,Home Office,East,186950.43,52,74,0.6667,0.7123
+CU-10117,Sarah Williams,Corporate,West,186360.4,51,75,0.6621,0.7031
+CU-10185,William Thomas,Consumer,Central,185084.25,46,76,0.6575,0.5875
+CU-10173,Linda Jones,Consumer,West,184765.29,46,77,0.653,0.575
+CU-10184,Linda Thomas,Corporate,Central,181200.28,53,78,0.6484,0.6875
+CU-10093,Elizabeth Perez,Consumer,South,179278.9,47,79,0.6438,0.5625
+CU-10159,Elizabeth Wilson,Consumer,South,179140.85,47,80,0.6393,0.55
+CU-10155,Wei Martinez,Consumer,East,179081.64,46,81,0.6347,0.5375
+CU-10216,Thomas Jones,Corporate,East,177669.44,45,82,0.6301,0.6719
+CU-10157,Linda Miller,Home Office,Central,175644.14,52,83,0.6256,0.6986
+CU-10194,Charles Taylor,Consumer,East,172467.31,50,84,0.621,0.525
+CU-10005,William Brown,Corporate,East,170708.01,45,85,0.6164,0.6563
+CU-10119,Fatima Moore,Home Office,East,169956.75,47,86,0.6119,0.6849
+CU-10180,Fatima Taylor,Home Office,South,168991.84,49,87,0.6073,0.6712
+CU-10014,David Jones,Home Office,West,168734.36,55,88,0.6027,0.6575
+CU-10126,Priya Moore,Home Office,Central,168525.26,52,89,0.5982,0.6438
+CU-10128,Fatima Garcia,Corporate,Central,168266.46,42,90,0.5936,0.6406
+CU-10085,Richard Garcia,Corporate,South,167997.17,49,91,0.589,0.625
+CU-10175,John Jones,Home Office,Central,167718.34,50,92,0.5845,0.6301
+CU-10047,Jennifer Moore,Home Office,Central,166215.97,48,93,0.5799,0.6164
+CU-10122,Ahmed Perez,Corporate,Central,163577.75,43,94,0.5753,0.6094
+CU-10202,Susan Garcia,Home Office,West,161143.8,38,95,0.5708,0.6027
+CU-10196,Yuki Wilson,Consumer,East,158240.98,50,96,0.5662,0.5125
+CU-10084,Susan Jackson,Home Office,East,155919.16,49,97,0.5616,0.589
+CU-10156,Amit Johnson,Home Office,South,149863.86,49,98,0.5571,0.5753
+CU-10050,Amit Rodriguez,Consumer,South,144634.57,44,99,0.5525,0.5
+CU-10197,Mary Williams,Corporate,Central,143986.42,45,100,0.5479,0.5938
+CU-10120,Sofia Miller,Consumer,South,142422.19,44,101,0.5434,0.4875
+CU-10042,Charles Davis,Corporate,East,139924.84,44,102,0.5388,0.5781
+CU-10003,Sarah Thomas,Consumer,West,125818.4,52,103,0.5342,0.475
+CU-10035,Linda Williams,Consumer,South,124452.93,44,104,0.5297,0.4625
+CU-10198,Susan Rodriguez,Corporate,West,83630.59,15,105,0.5251,0.5625
+CU-10214,Barbara Martinez,Home Office,East,75676.0,16,106,0.5205,0.5616
+CU-10007,Elizabeth Thompson,Home Office,Central,71934.46,12,107,0.516,0.5479
+CU-10125,Amit Perez,Consumer,East,67498.86,10,108,0.5114,0.45
+CU-10218,Joseph Martin,Corporate,West,64089.17,14,109,0.5068,0.5469
+CU-10013,Charles Wilson,Home Office,West,57988.91,16,110,0.5023,0.5342
+CU-10015,Charles Taylor,Home Office,Central,54792.22,9,111,0.4977,0.5205
+CU-10169,Ahmed Jackson,Home Office,South,53545.48,10,112,0.4932,0.5068
+CU-10201,Carlos Rodriguez,Consumer,Central,51978.04,11,113,0.4886,0.4375
+CU-10080,John Davis,Consumer,South,51724.24,18,114,0.484,0.425
+CU-10217,Robert Martin,Home Office,West,49943.68,14,115,0.4795,0.4932
+CU-10190,Thomas Miller,Consumer,West,49861.64,11,116,0.4749,0.4125
+CU-10145,Richard Wilson,Home Office,South,48634.09,10,117,0.4703,0.4795
+CU-10038,David Moore,Consumer,Central,47861.59,12,118,0.4658,0.4
+CU-10208,William Garcia,Home Office,East,47701.34,18,119,0.4612,0.4658
+CU-10018,Sarah Smith,Home Office,East,47400.16,11,120,0.4566,0.4521
+CU-10154,Patricia Davis,Home Office,South,46937.43,9,121,0.4521,0.4384
+CU-10045,Carlos Williams,Consumer,East,46750.54,10,122,0.4475,0.3875
+CU-10210,Michael Garcia,Home Office,West,45951.11,6,123,0.4429,0.4247
+CU-10209,Carlos Anderson,Consumer,Central,45380.26,9,124,0.4384,0.375
+CU-10020,David Martin,Home Office,West,44107.22,9,125,0.4338,0.411
+CU-10114,Patricia Lee,Home Office,South,44100.74,13,126,0.4292,0.3973
+CU-10008,Amit Davis,Consumer,Central,44084.49,10,127,0.4247,0.3625
+CU-10097,Ahmed Moore,Home Office,West,43085.97,13,128,0.4201,0.3836
+CU-10133,Karen Davis,Home Office,West,43005.9,16,129,0.4155,0.3699
+CU-10183,Susan Brown,Corporate,East,42861.7,13,130,0.411,0.5313
+CU-10006,Karen Rodriguez,Corporate,East,42724.56,9,131,0.4064,0.5156
+CU-10088,Richard Rodriguez,Corporate,South,42698.62,12,132,0.4018,0.5
+CU-10000,Priya Brown,Consumer,East,42629.01,10,133,0.3973,0.35
+CU-10082,Richard Perez,Corporate,East,42614.25,5,134,0.3927,0.4844
+CU-10147,Wei Brown,Consumer,South,41214.71,8,135,0.3881,0.3375
+CU-10074,James Brown,Home Office,South,41177.9,7,136,0.3836,0.3562
+CU-10123,Wei Taylor,Corporate,Central,40802.47,13,137,0.379,0.4688
+CU-10111,Charles Martinez,Corporate,South,40408.88,11,138,0.3744,0.4531
+CU-10049,John Rodriguez,Home Office,Central,39260.84,7,139,0.3699,0.3425
+CU-10077,Jennifer Jackson,Home Office,South,39125.68,7,140,0.3653,0.3288
+CU-10137,Sofia Thomas,Consumer,Central,39054.69,10,141,0.3607,0.325
+CU-10148,Sofia Johnson,Corporate,Central,38898.4,9,142,0.3562,0.4375
+CU-10063,William Thomas,Corporate,East,38429.64,8,143,0.3516,0.4219
+CU-10067,Susan Taylor,Corporate,West,38176.64,13,144,0.347,0.4063
+CU-10087,David Taylor,Corporate,Central,38144.94,7,145,0.3425,0.3906
+CU-10053,Robert Jones,Corporate,East,37145.44,14,146,0.3379,0.375
+CU-10178,Joseph Anderson,Home Office,East,36250.24,6,147,0.3333,0.3151
+CU-10138,Elizabeth Perez,Home Office,South,35652.05,11,148,0.3288,0.3014
+CU-10016,Carlos Johnson,Home Office,East,35518.41,9,149,0.3242,0.2877
+CU-10150,Richard Thompson,Consumer,West,35251.92,11,150,0.3196,0.3125
+CU-10165,Karen Davis,Home Office,East,35194.62,12,151,0.3151,0.274
+CU-10079,Elizabeth Davis,Home Office,Central,35010.43,6,152,0.3105,0.2603
+CU-10010,Wei Williams,Consumer,West,34297.25,11,153,0.3059,0.3
+CU-10021,Priya Martin,Consumer,West,33253.02,11,154,0.3014,0.2875
+CU-10076,Amit Martin,Home Office,Central,32063.18,10,155,0.2968,0.2466
+CU-10086,Amit Smith,Corporate,East,31860.81,7,156,0.2922,0.3594
+CU-10091,Jessica Brown,Corporate,West,31728.7,7,157,0.2877,0.3438
+CU-10112,Mary Rodriguez,Corporate,South,31352.2,10,158,0.2831,0.3281
+CU-10108,Yuki Perez,Corporate,Central,31192.35,8,159,0.2785,0.3125
+CU-10029,Linda Williams,Home Office,East,30809.7,4,160,0.274,0.2329
+CU-10083,Barbara Martinez,Corporate,South,30278.19,10,161,0.2694,0.2969
+CU-10186,Jessica Williams,Corporate,East,29822.4,5,162,0.2648,0.2813
+CU-10116,Patricia Miller,Consumer,West,29560.46,8,163,0.2603,0.275
+CU-10158,Elizabeth Moore,Home Office,East,29537.44,8,164,0.2557,0.2192
+CU-10131,Thomas Anderson,Consumer,South,29204.71,4,165,0.2511,0.2625
+CU-10136,Sarah Jones,Consumer,South,28967.98,8,166,0.2466,0.25
+CU-10166,John Johnson,Consumer,East,28627.31,8,167,0.242,0.2375
+CU-10141,Jessica Taylor,Consumer,South,28430.06,6,168,0.2374,0.225
+CU-10036,Sarah Smith,Corporate,East,28278.95,7,169,0.2329,0.2656
+CU-10066,Amit Thomas,Home Office,Central,28217.58,7,170,0.2283,0.2055
+CU-10054,Elizabeth Anderson,Home Office,East,27482.93,10,171,0.2237,0.1918
+CU-10052,David Garcia,Home Office,South,27064.44,6,172,0.2192,0.1781
+CU-10071,Carlos Davis,Consumer,Central,26762.38,7,173,0.2146,0.2125
+CU-10176,John Smith,Consumer,Central,26514.05,5,174,0.21,0.2
+CU-10065,William Thompson,Corporate,Central,25987.97,6,175,0.2055,0.25
+CU-10203,Amit Anderson,Corporate,East,25687.76,8,176,0.2009,0.2344
+CU-10046,Thomas Rodriguez,Consumer,West,25376.8,8,177,0.1963,0.1875
+CU-10090,James Davis,Consumer,West,24740.6,12,178,0.1918,0.175
+CU-10001,Patricia Lee,Consumer,East,23800.75,4,179,0.1872,0.1625
+CU-10059,Ahmed Davis,Consumer,West,23625.33,6,180,0.1826,0.15
+CU-10182,Karen Perez,Corporate,Central,22855.33,6,181,0.1781,0.2188
+CU-10199,Elizabeth Perez,Consumer,South,21790.43,5,182,0.1735,0.1375
+CU-10164,Patricia Davis,Home Office,South,20884.45,3,183,0.1689,0.1644
+CU-10034,Michael Lee,Consumer,South,20737.96,7,184,0.1644,0.125
+CU-10044,Linda Rodriguez,Corporate,South,19660.05,5,185,0.1598,0.2031
+CU-10135,Wei Martinez,Corporate,Central,19406.06,6,186,0.1553,0.1875
+CU-10107,Patricia Lee,Home Office,West,19162.59,5,187,0.1507,0.1507
+CU-10134,Linda Brown,Consumer,South,19133.92,9,188,0.1461,0.1125
+CU-10106,David Martinez,Home Office,Central,18374.68,5,189,0.1416,0.137
+CU-10031,Charles Perez,Corporate,South,18050.34,6,190,0.137,0.1719
+CU-10181,Robert Williams,Consumer,Central,17774.41,8,191,0.1324,0.1
+CU-10170,Joseph Moore,Home Office,West,17640.22,5,192,0.1279,0.1233
+CU-10206,Karen Moore,Consumer,Central,17405.07,5,193,0.1233,0.0875
+CU-10017,Robert Taylor,Home Office,South,17053.76,8,194,0.1187,0.1096
+CU-10058,Fatima Johnson,Corporate,South,16820.81,4,195,0.1142,0.1563
+CU-10109,Jennifer Martinez,Corporate,East,16603.23,7,196,0.1096,0.1406
+CU-10129,Richard Lee,Corporate,East,15406.54,5,197,0.105,0.125
+CU-10140,Linda Perez,Consumer,South,14759.18,4,198,0.1005,0.075
+CU-10069,William Moore,Home Office,South,14499.92,5,199,0.0959,0.0959
+CU-10027,Joseph Brown,Corporate,West,13843.02,8,200,0.0913,0.1094
+CU-10092,Karen Brown,Home Office,West,13638.6,7,201,0.0868,0.0822
+CU-10211,Carlos Perez,Home Office,South,13285.03,7,202,0.0822,0.0685
+CU-10101,Jennifer Jackson,Corporate,West,12820.69,3,203,0.0776,0.0938
+CU-10207,Charles Taylor,Home Office,East,10946.14,4,204,0.0731,0.0548
+CU-10195,Michael Taylor,Consumer,South,10135.92,2,205,0.0685,0.0625
+CU-10219,Carlos Wilson,Corporate,East,8473.14,2,206,0.0639,0.0781
+CU-10033,Mary Brown,Consumer,East,7362.74,4,207,0.0594,0.05
+CU-10189,Susan Johnson,Corporate,Central,6540.43,3,208,0.0548,0.0625
+CU-10057,Sofia Thomas,Home Office,West,6222.13,3,209,0.0502,0.0411
+CU-10162,Linda Taylor,Consumer,Central,6054.94,4,210,0.0457,0.0375
+CU-10124,Mary Thomas,Consumer,Central,5206.18,2,211,0.0411,0.025
+CU-10102,Karen Rodriguez,Consumer,East,4996.69,4,212,0.0365,0.0125
+CU-10192,Carlos Thompson,Consumer,East,4368.13,2,213,0.032,0.0
+CU-10177,Mary Jones,Home Office,South,3874.86,2,214,0.0274,0.0274
+CU-10130,Patricia Taylor,Corporate,East,3668.87,3,215,0.0228,0.0469
+CU-10078,Carlos Martin,Corporate,South,3544.74,2,216,0.0183,0.0313
+CU-10089,Sarah Johnson,Home Office,Central,3161.44,2,217,0.0137,0.0137
+CU-10118,Jessica Martinez,Home Office,East,2683.85,3,218,0.0091,0.0
+CU-10213,Barbara Martin,Corporate,East,1599.24,1,219,0.0046,0.0156
+CU-10022,Carlos Martin,Corporate,East,865.41,2,220,0.0,0.0

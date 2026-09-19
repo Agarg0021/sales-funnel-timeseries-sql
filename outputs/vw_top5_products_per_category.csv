@@ -1,0 +1,16 @@
+category,sub_category,product_id,product_name,total_sales,total_quantity,total_profit,product_rank
+Furniture,Furnishings,PR-1014,Filing Tray,1205988.38,1538,166183.77,1
+Furniture,Bookcases,PR-1011,Ladder Shelf,1166824.42,1360,171810.0,2
+Furniture,Tables,PR-1007,Standing Desk,1009595.88,1375,154308.26,3
+Furniture,Chairs,PR-1002,Mesh Task Chair,980584.02,1559,160177.0,4
+Furniture,Tables,PR-1008,Side Table,962089.78,1405,148186.21,5
+Office Supplies,Art,PR-1024,Marker Set,166948.77,1497,25404.89,1
+Office Supplies,Storage,PR-1022,Storage Box,160583.38,1375,22353.55,2
+Office Supplies,Binders,PR-1016,Report Cover,148610.79,1486,21733.32,3
+Office Supplies,Labels,PR-1027,Address Labels,148314.59,1482,20580.56,4
+Office Supplies,Art,PR-1026,Push Pins,139770.88,1328,20986.67,5
+Technology,Machines,PR-1032,Laser Printer,2260218.91,1522,325503.35,1
+Technology,Machines,PR-1033,Label Maker,2084505.44,1531,301023.01,2
+Technology,Machines,PR-1034,Shredder,1795695.08,1506,253152.5,3
+Technology,Accessories,PR-1035,Wireless Mouse,1786216.2,1411,261253.46,4
+Technology,Accessories,PR-1036,USB Hub,1564709.46,1454,228451.97,5
